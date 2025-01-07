@@ -1,11 +1,25 @@
 const posts = require('../data/posts');
 
 const index = (req, res) => {
-    res.json(posts)
+    let postList = posts;
+    const tag = req.query.tags;
+
+    if (tag) postList = posts.filter( post => post.tags.includes(tag))
+
+    res.json(postList)
 };
 
 const show = (req, res) => {
     const post = posts.find( post => post.id == req.params.id)
+
+    if (!post) {
+        res.status(404)
+        return res.json({
+            message: 'post non trovato',
+            status: 404,
+            error: 'not found'
+        })
+    }
 
     res.json(post)
 };
@@ -23,6 +37,15 @@ const modify = (req, res) => {
 
 const destroy = (req, res) => {
     const post = posts.find( post => post.id == req.params.id);
+
+    if (!post) {
+        res.status(404)
+        return res.json({
+            message: 'post non trovato',
+            status: 404,
+            error: 'not found'
+        })
+    }
 
     posts.splice(posts.indexOf(post), 1);
     console.log(posts);
