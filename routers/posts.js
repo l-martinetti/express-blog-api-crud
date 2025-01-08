@@ -1,5 +1,4 @@
 const postsController = require('../controllers/postsController');
-const posts = require('../data/posts')
 
 const express = require('express');
 const router = express.Router();
@@ -12,9 +11,7 @@ router.get('/', postsController.index);
 router.get('/:id', postsController.show);
 
 //store
-router.post('/', (req, res) => {
-    res.send('Aggiungi post')
-});
+router.post('/', postsController.store);
 
 //update
 router.put('/:id', postsController.update);
