@@ -31,6 +31,7 @@ const store = (req, res) => {
 const update = (req, res) => {
     res.send('Modifico per intero post con id: ' + req.params.id)
 };
+
 const modify = (req, res) => {
     res.send('Modifico parzialmente post con id: ' + req.params.id)
 };
