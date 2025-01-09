@@ -74,4 +74,4 @@ Dopo aver completato tutte le operazioni CRUD, completiamo le nostre API inseren
 
 BONUS
 
-Creare un middleware che in caso di inserimento/modifica contolli la validità dei dati
+Creare un middleware che in caso di inserimento/modifica controlli la validità dei dati
