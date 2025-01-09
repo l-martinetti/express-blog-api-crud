@@ -2,7 +2,7 @@ const posts = require('../data/posts');
 
 function validator ( req, res, next ){
 
-    if( typeof req.body.title !== 'string' && typeof req.body.content !== 'string'){
+    if( typeof req.body.title !== 'string' || typeof req.body.content !== 'string'){
         res.status(500);
         res.json({
             message: 'Formato non valido',
